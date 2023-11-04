@@ -1,0 +1,73 @@
+[$Version]
+update_info=kwinrules.upd:replace-placement-string-to-enum,kwinrules.upd:use-virtual-desktop-ids
+
+[1]
+Description=Window settings for konsole
+clientmachine=localhost
+desktopfile=nvim
+desktopfilerule=2
+noborder=true
+noborderrule=2
+title=Neovim — Konsole
+titlematch=3
+windowrole=MainWindow#1
+wmclass=konsole
+wmclassmatch=1
+
+[2]
+Description=Settings for firefox-esr
+clientmachine=localhost
+maximizehoriz=true
+maximizehorizrule=3
+maximizevert=true
+maximizevertrule=3
+noborder=true
+title=Neovim — Konsole
+types=1
+wmclass=firefox-esr
+wmclassmatch=1
+
+[399b3472-32bd-4b13-987a-2e4c7cf23246]
+Description=Window settings for konsole
+clientmachine=localhost
+noborder=true
+noborderrule=3
+title=Neovim — Konsole
+titlematch=1
+wmclass=konsole
+wmclassmatch=1
+
+[83d86c75-95c5-4858-b2a2-ed1dcd10113d]
+Description=Window settings for konsole
+clientmachine=localhost
+title=Neovim — Konsole
+types=1
+wmclass=konsole
+wmclassmatch=1
+
+[General]
+count=2
+rules=1,2
+
+[d87c4797-a4a9-41b2-8c44-f3ca7169f5f0]
+Description=Window settings for konsole
+clientmachine=localhost
+desktopfile=nvim
+desktopfilerule=3
+title=Apps : bash — Konsole
+types=1
+windowrole=MainWindow#1
+windowrolematch=1
+wmclass=konsole_b konsole
+wmclasscomplete=true
+wmclassmatch=1
+
+[dc5996e0-01a1-45bc-a71b-814b79302cfa]
+Description=Settings for firefox-esr
+maximizehoriz=true
+maximizehorizrule=3
+maximizevert=true
+maximizevertrule=3
+types=1
+wmclass=firefox-esr
+wmclassmatch=1

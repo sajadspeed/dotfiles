@@ -1,0 +1,3 @@
+pane	workspace_nvim	0	1	:*	0	sajadspeed	:/home/sajadspeed	1	bash	:
+window	workspace_nvim	0	:FrontEnd	1	:*	b47d,188x41,0,0,0	off
+state	workspace_nvim	

@@ -1,0 +1,6 @@
+pane	workspace_nvim	0	1	:*Z	0	sajadspeed	:/home/sajadspeed/React_Native_Project/KOK	1	nvim	:nvim
+pane	workspace_nvim	0	1	:*Z	1	sajadspeed	:/home/sajadspeed/React_Native_Project/KOK	0	zsh	:
+pane	workspace_nvim	1	0	:-	0	sajadspeed	:/home/sajadspeed/.config/nvim	1	zsh	:
+window	workspace_nvim	0	:FrontEnd	1	:*Z	0cf0,191x40,0,0[191x38,0,0,1,191x1,0,39,2]	off
+window	workspace_nvim	1	:BackEnd	0	:-	ad40,191x40,0,0,3	off
+state	workspace_nvim	

@@ -28,12 +28,22 @@ return {
 				return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
 			end
 
+			local function open_no_focus()
+				api.node.open.edit()
+				api.tree.focus()
+			end
+
 			-- default mappings
 			api.config.mappings.default_on_attach(bufnr)
 
 			-- custom mappings
 			vim.keymap.set("n", "d", api.fs.trash, opts("Trash"))
 			-- vim.keymap.set("n", "D", api.fs.remove, opts("Delete"))
+			vim.keymap.set("n", "<Tab>", open_no_focus, opts("Open: No Focus"))
+			vim.keymap.set("n", "<S-Tab>", api.node.open.preview, opts("Preview"))
+
+			vim.keymap.set("n", "r", api.fs.rename_basename, opts("Rename basename"))
+			vim.keymap.set("n", "e", api.fs.rename, opts("Rename"))
 		end
 
 		-- configure nvim-tree

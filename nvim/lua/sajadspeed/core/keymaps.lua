@@ -12,11 +12,11 @@ keymap.set("i", "<C-s>", "<cmd> w <CR>", { desc = "Save file" })
 keymap.set("n", "<leader>q", "<cmd> bp<bar>sp<bar>bn<bar>bd <CR>", { desc = "Close buffer" })
 keymap.set("n", "<leader>tl", "<cmd> bn <CR>", { desc = "Next buffer" })
 keymap.set("n", "<leader>th", "<cmd> bp <CR>", { desc = "Prev buffer" })
-keymap.set("n", "<C-l>", "<cmd> bn <CR>", { desc = "Next buffer" })
-keymap.set("n", "<C-h>", "<cmd> bp <CR>", { desc = "Prev buffer" })
+keymap.set({ "n", "i" }, "<C-l>", "<cmd> bn <CR>", { desc = "Next buffer" })
+keymap.set({ "n", "i" }, "<C-h>", "<cmd> bp <CR>", { desc = "Prev buffer" })
 
-keymap.set("n", "L", "$", { desc = "Go to end of line" })
-keymap.set("n", "H", "^", { desc = "Go to first of line" })
+keymap.set({ "n", "v" }, "L", "$", { desc = "Go to end of line" })
+keymap.set({ "n", "v" }, "H", "^", { desc = "Go to first of line" })
 
 keymap.set({ "n", "x" }, "J", "<Cmd>lua Scroll('<C-d>', 1, 1)<CR>", { desc = "Half page down" })
 keymap.set({ "n", "x" }, "K", "<Cmd>lua Scroll('<C-u>', 1, 1)<CR>", { desc = "Half page up" })
@@ -43,6 +43,7 @@ keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)")
 
 keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)")
 keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
+
 -- window management
 keymap.set("n", "<leader>ss", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
 keymap.set("n", "<leader>s-", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
@@ -57,3 +58,7 @@ keymap.set("n", "<M-h>", "<cmd>vertical resize -3<CR>")
 keymap.set("n", "<M-k>", "<cmd>res +1<CR>")
 keymap.set("n", "<M-j>", "<cmd>res -1<CR>")
 keymap.set("n", "<M-=>", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
+
+keymap.set("n", "<leader>h", function()
+	vim.cmd("noh")
+end, { desc = "Cancel Highlight search" })

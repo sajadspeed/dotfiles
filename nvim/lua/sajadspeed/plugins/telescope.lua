@@ -5,6 +5,7 @@ return {
 		"nvim-lua/plenary.nvim",
 		-- { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		"nvim-tree/nvim-web-devicons",
+		"debugloop/telescope-undo.nvim",
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -52,6 +53,9 @@ return {
 			},
 		})
 
+		-- Undo extention
+		telescope.load_extension("undo")
+
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness
 
@@ -74,6 +78,7 @@ return {
 		keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "Find oldfiles" })
 		keymap.set("n", "<leader>fc", builtin.current_buffer_fuzzy_find, { desc = "Find in current buffer" })
 		keymap.set("n", "<leader>fy", "<cmd>Telescope yank_history<CR>", { desc = "Yank History" }) -- Yanky
+		keymap.set("n", "<leader>fu", "<cmd>Telescope undo<CR>", { desc = "Telescope undo" }) -- Yanky
 		keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help pages" })
 	end,
 }

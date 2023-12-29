@@ -1,0 +1,7 @@
+pane	workspace_nvim	0	0	:-	0	sajadspeed	:/home/sajadspeed/Unity/Projects/Test_3D_Mobile	1	nvim	:nvim
+pane	workspace_nvim	1	1	:*	0	sajadspeed	:/home/sajadspeed/.config/nvim	1	nvim	:nvim
+pane	workspace_nvim	2	0	:	0	sajadspeed	:/home/sajadspeed/tmp/cs_test	1	zsh	:
+window	workspace_nvim	0	:FrontEnd	0	:-	ad3e,191x40,0,0,1	off
+window	workspace_nvim	1	:BackEnd	1	:*	ad3f,191x40,0,0,2	off
+window	workspace_nvim	2	:zsh	0	:	ad41,191x40,0,0,4	:
+state	workspace_nvim	

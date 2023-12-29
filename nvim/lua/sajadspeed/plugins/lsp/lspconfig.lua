@@ -5,6 +5,8 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		"ray-x/lsp_signature.nvim",
+		"Hoffs/omnisharp-extended-lsp.nvim",
+		-- "VidocqH/lsp-lens.nvim",
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
@@ -59,7 +61,7 @@ return {
 				keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
 
 				opts.desc = "Show LSP definitions"
-				keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+				keymap.set("n", "gd", vim.lsp.buf.definition, opts) -- show lsp definitions
 
 				opts.desc = "Show LSP implementations"
 				keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
@@ -104,6 +106,26 @@ return {
 				-- end, opts)
 			end,
 		})
+
+		local SymbolKind = vim.lsp.protocol.SymbolKind
+
+		-- require("lsp-lens").setup({
+		-- 	enable = true,
+		-- 	include_declaration = false, -- Reference include declaration
+		-- 	sections = { -- Enable / Disable specific request, formatter example looks 'Format Requests'
+		-- 		definition = false,
+		-- 		references = true,
+		-- 		implements = true,
+		-- 		git_authors = true,
+		-- 	},
+		-- 	ignore_filetype = {
+		-- 		"prisma",
+		-- 	},
+		-- 	-- Target Symbol Kinds to show lens information
+		-- 	target_symbol_kinds = { SymbolKind.Function, SymbolKind.Method, SymbolKind.Interface },
+		-- 	-- Symbol Kinds that may have target symbol kinds as children
+		-- 	wrapper_symbol_kinds = { SymbolKind.Class, SymbolKind.Struct },
+		-- })
 
 		-- used to enable autocompletion (assign to every lsp server config)
 		local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -183,6 +205,57 @@ return {
 			capabilities = capabilities,
 			-- on_attach = on_attach,
 			filetypes = { "html", "css", "sass", "scss", "less", "svelte" },
+		})
+
+		-- lspconfig["csharp_ls"].setup({
+		-- 	capabilities = capabilities,
+		-- })
+
+		-- lspconfig["csharp_ls"].setup({
+		-- 	capabilities = capabilities,
+		-- 	-- cmd = { "csharp-ls" },
+		-- })
+
+		lspconfig["omnisharp"].setup({
+			capabilities = capabilities,
+			cmd = { "dotnet", "/home/sajadspeed/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll" },
+			handlers = {
+				["textDocument/definition"] = require("omnisharp_extended").handler,
+			},
+			-- Enables support for reading code style, naming convention and analyzer
+			-- settings from .editorconfig.
+			enable_editorconfig_support = true,
+
+			-- If true, MSBuild project system will only load projects for files that
+			-- were opened in the editor. This setting is useful for big C# codebases
+			-- and allows for faster initialization of code navigation features only
+			-- for projects that are relevant to code that is being edited. With this
+			-- setting enabled OmniSharp may load fewer projects and may thus display
+			-- incomplete reference lists for symbols.
+			enable_ms_build_load_projects_on_demand = false,
+
+			-- Enables support for roslyn analyzers, code fixes and rulesets.
+			enable_roslyn_analyzers = false,
+
+			-- Specifies whether 'using' directives should be grouped and sorted during
+			-- document formatting.
+			organize_imports_on_format = false,
+
+			-- Enables support for showing unimported types and unimported extension
+			-- methods in completion lists. When committed, the appropriate using
+			-- directive will be added at the top of the current file. This option can
+			-- have a negative impact on initial completion responsiveness,
+			-- particularly for the first few completion sessions after opening a
+			-- solution.
+			enable_import_completion = false,
+
+			-- Specifies whether to include preview versions of the .NET SDK when
+			-- determining which version to use for project loading.
+			sdk_include_prereleases = true,
+
+			-- Only run analyzers against open files when 'enableRoslynAnalyzers' is
+			-- true
+			analyze_open_documents_only = false,
 		})
 	end,
 }

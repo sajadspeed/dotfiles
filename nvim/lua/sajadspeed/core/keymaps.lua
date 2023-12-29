@@ -29,6 +29,7 @@ keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
 keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
 
 keymap.set("n", "<CR>", "o <ESC>", { desc = "New blank line in normal mode" })
+keymap.set("n", "<S-CR>", "i<CR><ESC>", { desc = "New blank line in normal mode" })
 keymap.set("n", "<leader>a", "ggVG", { desc = "Select all" })
 keymap.set("n", "x", '"_x')
 keymap.set("n", "X", '"_X')

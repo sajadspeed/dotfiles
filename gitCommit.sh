@@ -33,4 +33,4 @@ git add .
 git status
 echo "Insert your commit message:"
 read commitMessage
-git commit -m \"$commitMessage\"
+git commit -m "$commitMessage"

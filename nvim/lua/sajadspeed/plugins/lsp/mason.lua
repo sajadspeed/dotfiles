@@ -27,7 +27,8 @@ return {
 		mason_lspconfig.setup({
 			ensure_installed = {
 				"lua_ls",
-				-- "csharp_ls",
+				-- "csharp_ls", -- require dotnet
+				"omnisharp",
 				"clangd",
 				"tsserver",
 				"intelephense",

@@ -6,11 +6,8 @@ syntax on
 
 set tabstop=4
 
-
 " Ignore case when searching
 set ignorecase
-
-
 
 " When searching try to be smart about cases 
 set smartcase

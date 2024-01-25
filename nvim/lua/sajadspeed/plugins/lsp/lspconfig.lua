@@ -107,7 +107,7 @@ return {
 			end,
 		})
 
-		local SymbolKind = vim.lsp.protocol.SymbolKind
+		-- local SymbolKind = vim.lsp.protocol.SymbolKind
 
 		-- require("lsp-lens").setup({
 		-- 	enable = true,

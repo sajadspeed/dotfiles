@@ -59,8 +59,8 @@ return {
 			case_insensitive_regex = false,
 		})
 		-- vim.cmd("hi IlluminatedWordRead guibg=#525252")
-		vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "Visual" })
-		vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "Visual" })
-		vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "Visual" })
+		vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "visual" })
+		vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "visual" })
+		vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "visual" })
 	end,
 }

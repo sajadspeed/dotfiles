@@ -63,3 +63,5 @@ keymap.set("n", "<M-=>", "<C-w>=", { desc = "Make splits equal size" }) -- make 
 keymap.set("n", "<leader>h", function()
 	vim.cmd("noh")
 end, { desc = "Cancel Highlight search" })
+
+keymap.set("n", "<leader>;", "A;<ESC>")

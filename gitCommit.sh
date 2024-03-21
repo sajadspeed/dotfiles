@@ -28,6 +28,9 @@ cp ~/.local/share/applications/nvim.desktop ./desktop/nvim.desktop
  
 echo "Copy firefox userChrome.css"
 cp ~/.mozilla/firefox/wbfr5h0b.default-esr/chrome/userChrome.css ./etc/firefox/
+
+echo "Copy Marker user_commands.txt.."
+cp ~/.local/share/marker/user_commands.txt ./marker/
  
 git add .
 git status

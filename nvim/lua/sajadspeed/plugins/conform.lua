@@ -28,6 +28,13 @@ return {
 						"--config=/home/sajadspeed/.config/nvim/lua/sajadspeed/plugins/lsp/php_cs_config.php",
 					},
 				},
+				-- clang_format = {
+				-- 	command = "clang-sldkfjsdfformat",
+				-- 	prepend_args = {
+				-- 		-- '--style="{UsetTab: Always, IndentWidth: 4, TabWidth: 4}"',
+				-- 		'-style="{BasedOnStyle: Google, UseTab: Always}"',
+				-- 	},
+				-- },
 			},
 			formatters_by_ft = {
 				lua = { "stylua" },

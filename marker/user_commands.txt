@@ -10,5 +10,5 @@ convert -blur 0x25 original.jpg blurred_slow.jpg##Image Blur
 convert $(ls -1v *.jpg) all.pdf##JPG To PDF
 __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia##Run by nvidia
 /home/sajadspeed/Project/HomeBackup/HomeBackup.sh##Home Backup
-adb pull /storage/self/primary/Download/ADM/ ~/tmp/mobile/##Mobile Pull ADM
+adb pull /storage/self/primary/Download/ADM/ ~/tmp/mobile/ && pcmanfm-qt ~/tmp/mobile/##Mobile Pull ADM
 for file in *.png; do filename=$(basename "$file" .png); convert "$file" -flatten -resize 1000x1000\> -quality 30 -strip "${filename}_convert.jpg"; done##Convert PNG to JPG with compression

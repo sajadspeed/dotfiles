@@ -62,5 +62,6 @@ return {
 		vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "visual" })
 		vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "visual" })
 		vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "visual" })
+		--
 	end,
 }

@@ -21,6 +21,8 @@ keymap.set({ "n", "v" }, "H", "^", { desc = "Go to first of line" })
 keymap.set({ "n", "x" }, "J", "<Cmd>lua Scroll('<C-d>', 1, 1)<CR>", { desc = "Half page down" })
 keymap.set({ "n", "x" }, "K", "<Cmd>lua Scroll('<C-u>', 1, 1)<CR>", { desc = "Half page up" })
 
+keymap.set("n", "<leader>j", "J<CR>", { desc = "Join" })
+
 keymap.set("n", "<C-j>", ":m .+1<CR>==")
 keymap.set("n", "<C-k>", ":m .-2<CR>==")
 keymap.set("i", "<C-j>", "<Esc>:m .+1<CR>==gi")
@@ -60,7 +62,7 @@ keymap.set("n", "<M-k>", "<cmd>res +1<CR>")
 keymap.set("n", "<M-j>", "<cmd>res -1<CR>")
 keymap.set("n", "<M-=>", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 
-keymap.set("n", "<leader>h", function()
+keymap.set("n", "<leader>H", function()
 	vim.cmd("noh")
 end, { desc = "Cancel Highlight search" })
 

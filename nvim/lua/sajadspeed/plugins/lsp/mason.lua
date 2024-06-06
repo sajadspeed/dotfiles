@@ -54,7 +54,7 @@ return {
 				"eslint", -- js linter
 				"stylelint", -- css linter
 				"pylint", -- python linter
-				"cspell",
+				-- "codespell",
 			},
 		})
 	end,

@@ -18,7 +18,6 @@ return {
 		local keymap = vim.keymap -- for conciseness
 		-- local on_attach = function(bufnr)
 		-- 	opts.buffer = bufnr
-		--
 
 		-- Global mappings.
 		-- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -74,6 +73,21 @@ return {
 
 				opts.desc = "Smart rename"
 				keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
+				keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+
+				-- Cspell and null-ls
+				keymap.set("n", "<leader>rc", function()
+					require("null-ls").toggle({ "cspell" })
+				end, opts)
+
+				-- Toggle virtual_text
+				keymap.set("n", "<leader>rv", function()
+					if vim.g.diagnostic_virtual_text_enabled == nil then
+						vim.g.diagnostic_virtual_text_enabled = 1
+					end
+					vim.g.diagnostic_virtual_text_enabled = not vim.g.diagnostic_virtual_text_enabled
+					vim.diagnostic.config({ virtual_text = vim.g.diagnostic_virtual_text_enabled })
+				end, opts)
 
 				opts.desc = "Show buffer diagnostics"
 				keymap.set("n", "<leader>d", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
@@ -83,6 +97,12 @@ return {
 
 				opts.desc = "Show documentation for what is under cursor"
 				keymap.set("n", "<leader>k", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
+
+				opts.desc = "Show all methods/classes... in current buffer"
+				keymap.set("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<CR>", opts) -- show documentation for what is under cursor
+
+				opts.desc = "Show all methods/classes... in workspace"
+				keymap.set("n", "<leader>fS", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", opts) -- show documentation for what is under cursor
 
 				-- opts.desc = "Restart LSP"
 				-- keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
@@ -137,6 +157,19 @@ return {
 			local hl = "DiagnosticSign" .. type
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
+
+		vim.cmd([[
+		  highlight DiagnosticHint guifg=#af87d7
+		]])
+		vim.cmd([[
+		  highlight DiagnosticSignHint guifg=#af87d7
+		]])
+		vim.cmd([[
+		  highlight DiagnosticVirtualTextHint guifg=#af87d7
+		]])
+		vim.cmd([[
+		  highlight DiagnosticUnderlineHint guifg=#af87d7
+		]])
 
 		-- configure lua server (with special settings)
 		lspconfig["lua_ls"].setup({
@@ -259,5 +292,6 @@ return {
 
 			-- SS: My omnisharp.json in ~/.omnisharp/omnisharp.json
 		})
+		vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "visual" })
 	end,
 }

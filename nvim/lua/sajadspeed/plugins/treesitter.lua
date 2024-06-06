@@ -95,18 +95,22 @@ return {
 					goto_next_start = {
 						["]f"] = "@function.outer",
 						["]i"] = "@conditional.outer",
+						["]a"] = "@parameter.outer",
 					},
 					goto_next_end = {
 						["]F"] = "@function.outer",
 						["]I"] = "@conditional.outer",
+						["]A"] = "@parameter.outer",
 					},
 					goto_previous_start = {
 						["[f"] = "@function.outer",
 						["[i"] = "@conditional.outer",
+						["[a"] = "@parameter.outer",
 					},
 					goto_previous_end = {
 						["[F"] = "@function.outer",
 						["[I"] = "@conditional.outer",
+						["[A"] = "@parameter.outer",
 					},
 					-- Below will go to either the start or the end, whichever is closer.
 					-- Use if you want more granular movements
@@ -123,4 +127,5 @@ return {
 			},
 		})
 	end,
+	-- vim.cmd("set spelloptions=camel"), -- !!!!! This code not on right place. When this option set on options.lua not working on startup, so we should run this command again
 }

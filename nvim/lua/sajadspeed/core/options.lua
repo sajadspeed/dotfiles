@@ -48,3 +48,8 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 -- vim.opt.foldmethod = "indent"
 -- vim.opt.foldenable = false
 -- vim.opt.foldlevel = 99
+
+-- For spell checking, When start neovim run again "set spelloptions=camel" for check code and comment to gether
+-- opt.spell = true
+-- vim.opt.spelloptions = "camel"
+-- vim.cmd("set spelloptions=camel")

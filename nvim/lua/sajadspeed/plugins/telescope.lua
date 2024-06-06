@@ -80,5 +80,6 @@ return {
 		keymap.set("n", "<leader>fy", "<cmd>Telescope yank_history<CR>", { desc = "Yank History" }) -- Yanky
 		keymap.set("n", "<leader>fu", "<cmd>Telescope undo<CR>", { desc = "Telescope undo" }) -- Yanky
 		keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help pages" })
+		-- Before.nvim set keymap on before.lua
 	end,
 }

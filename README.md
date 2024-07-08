@@ -7,3 +7,4 @@
 - Konsole
 - KDE Plasma
 - Firefox
+- MPV Player

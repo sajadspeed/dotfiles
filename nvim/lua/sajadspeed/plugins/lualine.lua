@@ -16,7 +16,6 @@ return {
 			b = { fg = colors.lightred, bg = colors.black },
 			a = { fg = colors.black, bg = colors.lightred, gui = "bold" },
 		}
-
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,

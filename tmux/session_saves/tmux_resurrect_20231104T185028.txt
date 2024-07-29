@@ -1,5 +1,0 @@
-pane	workspace_nvim	0	0	:-	0	sajadspeed	:/home/sajadspeed	1	bash	:
-pane	workspace_nvim	1	1	:*	0	sajadspeed	:/home/sajadspeed/.local/share/applications	1	bash	:
-window	workspace_nvim	0	:FrontEnd	0	:-	b47d,188x41,0,0,0	off
-window	workspace_nvim	1	:BackEnd	1	:*	b47e,188x41,0,0,1	off
-state	workspace_nvim	

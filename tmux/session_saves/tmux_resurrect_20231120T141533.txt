@@ -1,6 +1,0 @@
-pane	workspace_nvim	0	1	:*	0	sajadspeed	:/home/sajadspeed/React_Native_Project/KOK	1	nvim	:nvim
-pane	workspace_nvim	0	1	:*	1	sajadspeed	:/home/sajadspeed/React_Native_Project/KOK	0	npm	:npm exec react-native run-android
-pane	workspace_nvim	1	0	:-	0	sajadspeed	:/home/sajadspeed/.local/share/applications	1	bash	:
-window	workspace_nvim	0	:FrontEnd	1	:*	5abf,191x41,0,0[191x30,0,0,1,191x10,0,31,3]	off
-window	workspace_nvim	1	:BackEnd	0	:-	b13f,191x41,0,0,2	off
-state	workspace_nvim	

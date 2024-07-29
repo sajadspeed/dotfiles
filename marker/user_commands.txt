@@ -2,7 +2,8 @@
 sudo cat /etc/resolv.conf | sudo tee /etc/resolv_back.conf && sudo echo -e "nameserver 178.22.122.100\nnameserver 185.51.200.2" | sudo tee /etc/resolv.conf##DNS Shecan
 sudo cat /etc/resolv_back.conf | sudo tee /etc/resolv.conf##DNS Default
 npx react-native run-android && killall java && npx react-native start##React Native Run Android
-sudo ~/Apps/snet -config ~/Apps/snet_config.json##Snet Connect
+sudo ~/Apps/snet -config ~/Apps/snet_config_v2rayng.json##Snet v2rayng
+sudo ~/Apps/snet -config ~/Apps/snet_config_oblivion.json##Snet oblivion
 journalctl --since "1 hour ago"##Log for hour
 nvtop##Htop for gpues
 ./gradlew assembleRelease && mv ./app/build/outputs/apk/release/* ../release/##Android assembleRelease
@@ -10,6 +11,6 @@ convert -blur 0x25 original.jpg blurred_slow.jpg##Image Blur
 convert $(ls -1v *.jpg) all.pdf##JPG To PDF
 __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia##Run by nvidia
 /home/sajadspeed/Project/HomeBackup/HomeBackup.sh##Home Backup
-adb pull /storage/self/primary/Download/ADM/ ~/Downloads/ADM/ && pcmanfm-qt ~/Downloads/ADM/##Mobile Pull ADM
+adb pull /storage/self/primary/Download/ADM/ ~/Downloads/ && pcmanfm-qt ~/Downloads/ADM/##Mobile Pull ADM
 for file in *.png; do filename=$(basename "$file" .png); convert "$file" -flatten -resize 1000x1000\> -quality 30 -strip "${filename}_convert.jpg"; done##Convert PNG to JPG with compression
 sudo swapoff -a && sudo swapon -a##Swap clean

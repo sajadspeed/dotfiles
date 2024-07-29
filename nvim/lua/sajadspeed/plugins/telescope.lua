@@ -35,8 +35,8 @@ return {
 					mappings = {
 						default = mapping.put("p"),
 						i = {
-							["<C-k>"] = actions.move_selection_previous, -- move to prev result
-							["<C-j>"] = actions.move_selection_next, -- move to next result
+							["<c-k>"] = actions.move_selection_previous, -- move to prev result
+							["<c-j>"] = actions.move_selection_next, -- move to next result
 							-- ["<c-g>"] = mapping.put("p"),
 							-- ["<c-k>"] = mapping.put("P"),
 							["<c-x>"] = mapping.delete(),

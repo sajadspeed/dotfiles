@@ -64,33 +64,6 @@ return {
 					behavior = cmp.ConfirmBehavior.Insert,
 					select = true,
 				}),
-				-- ["<Tab>"] = cmp.mapping(function(fallback)
-				-- 	if cmp.visible() then
-				-- 		cmp.select_next_item()
-				-- 	elseif require("luasnip").expand_or_jumpable() then
-				-- 		vim.fn.feedkeys(
-				-- 			vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true),
-				-- 			""
-				-- 		)
-				-- 	else
-				-- 		fallback()
-				-- 	end
-				-- end, {
-				-- 	"i",
-				-- 	"s",
-				-- }),
-				-- ["<S-Tab>"] = cmp.mapping(function(fallback)
-				-- 	if cmp.visible() then
-				-- 		cmp.select_prev_item()
-				-- 		vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
-				-- 	elseif require("luasnip").jumpable(-1) then
-				-- 	else
-				-- 		fallback()
-				-- 	end
-				-- end, {
-				-- 	"i",
-				-- 	"s",
-				-- }),
 				["<Tab>"] = cmp.mapping(function(fallback)
 					if cmp.visible() then
 						cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
@@ -130,16 +103,6 @@ return {
 
 					return vim_item
 				end,
-				-- format = lspkind.cmp_format({
-				-- 	maxwidth = 50,
-				-- 	ellipsis_char = "...",
-				-- 	format = function(entry, vim_item)
-				-- 		local source = entry.source.name -- nvim_lsp, luasnip, buffer...
-				-- 		vim_item.menu = " [" .. source .. "]"
-				--
-				-- 		return vim_item
-				-- 	end,
-				-- }),
 			},
 		})
 

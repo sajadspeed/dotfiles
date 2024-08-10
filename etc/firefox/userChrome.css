@@ -1,8 +1,12 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* only needed once */
+
+/* SS: FOR CLOSE BUTTON PADDING BUG ON THE CORNER
 .titlebar-buttonbox {
 	margin-top: -18px !important;
 	margin-right: -18px !important;
 }
+*/
+
 /*** Proton Tabs Tweaks ***/
 
 /* Adjust tab corner shape, optionally remove space below tabs */

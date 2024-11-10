@@ -18,8 +18,12 @@ keymap.set({ "n", "i" }, "<C-h>", "<cmd> bp <CR>", { desc = "Prev buffer" })
 keymap.set({ "n", "v" }, "L", "$", { desc = "Go to end of line" })
 keymap.set({ "n", "v" }, "H", "^", { desc = "Go to first of line" })
 
-keymap.set({ "n", "x" }, "J", "<Cmd>lua Scroll('<C-d>', 1, 1)<CR>", { desc = "Half page down" })
-keymap.set({ "n", "x" }, "K", "<Cmd>lua Scroll('<C-u>', 1, 1)<CR>", { desc = "Half page up" })
+keymap.set({ "n", "x" }, "J", function()
+	require("cinnamon").scroll("<C-d>")
+end, { desc = "Half page down" })
+keymap.set({ "n", "x" }, "K", function()
+	require("cinnamon").scroll("<C-u>")
+end, { desc = "Half page up" })
 
 keymap.set("n", "<leader>j", "J<CR>", { desc = "Join" })
 

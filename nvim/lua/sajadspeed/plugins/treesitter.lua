@@ -127,5 +127,4 @@ return {
 			},
 		})
 	end,
-	-- vim.cmd("set spelloptions=camel"), -- !!!!! This code not on right place. When this option set on options.lua not working on startup, so we should run this command again
 }

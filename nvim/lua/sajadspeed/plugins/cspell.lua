@@ -16,19 +16,19 @@ return {
 			end,
 		}
 
-		require("null-ls").setup({
-			sources = {
-				cspell.diagnostics.with({
-					diagnostics_postprocess = function(diagnostic)
-						diagnostic.severity = vim.diagnostic.severity["INFO"]
-						-- diagnostic.message = "WrongSpell"
-					end,
-					config = config,
-				}),
-				cspell.code_actions.with({
-					config = config,
-				}),
-			},
-		})
+		-- require("null-ls").setup({
+		-- 	sources = {
+		-- 		cspell.diagnostics.with({
+		-- 			diagnostics_postprocess = function(diagnostic)
+		-- 				diagnostic.severity = vim.diagnostic.severity["INFO"]
+		-- 				-- diagnostic.message = "WrongSpell"
+		-- 			end,
+		-- 			config = config,
+		-- 		}),
+		-- 		cspell.code_actions.with({
+		-- 			config = config,
+		-- 		}),
+		-- 	},
+		-- })
 	end,
 }

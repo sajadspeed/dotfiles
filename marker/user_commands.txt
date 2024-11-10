@@ -1,12 +1,13 @@
 ./gradlew assembleRelease && mv ./app/build/outputs/apk/release/* ../release/##Gradle assembleRelease
-sudo cat /etc/resolv.conf | sudo tee /etc/resolv_back.conf && sudo echo -e "nameserver 178.22.122.100\nnameserver 185.51.200.2" | sudo tee /etc/resolv.conf##DNS Shecan
-sudo cat /etc/resolv_back.conf | sudo tee /etc/resolv.conf##DNS Default
+sudo echo -e "nameserver 178.22.122.100\nnameserver 185.51.200.2" | sudo tee /etc/resolv.conf##DNS Shecan
+sudo echo -e "nameserver 10.202.10.202\nnameserver 10.202.10.102" | sudo tee /etc/resolv.conf##DNS 403
+sudo echo -e "nameserver 78.157.42.100\nnameserver 78.157.42.101" | sudo tee /etc/resolv.conf##DNS Electro
+sudo echo -e "nameserver 185.55.226.26\nnameserver 185.55.225.25" | sudo tee /etc/resolv.conf##DNS Begzar
 npx react-native run-android && killall java && npx react-native start##React Native Run Android
 sudo ~/Apps/snet -config ~/Apps/snet_config_v2rayng.json##Snet v2rayng
 sudo ~/Apps/snet -config ~/Apps/snet_config_oblivion.json##Snet oblivion
 journalctl --since "1 hour ago"##Log for hour
 nvtop##Htop for gpues
-./gradlew assembleRelease && mv ./app/build/outputs/apk/release/* ../release/##Android assembleRelease
 convert -blur 0x25 original.jpg blurred_slow.jpg##Image Blur
 convert $(ls -1v *.jpg) all.pdf##JPG To PDF
 __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia##Run by nvidia

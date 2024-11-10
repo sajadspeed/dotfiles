@@ -26,16 +26,6 @@ return {
 			return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 		end
 
-		require("cmp_dictionary").setup({
-			paths = { "/usr/share/dict/words" },
-			exact_length = 2,
-			first_case_insensitive = true,
-			document = {
-				enable = true,
-				command = { "wn", "${label}", "-over" },
-			},
-		})
-
 		cmp.setup({
 			completion = {
 				completeopt = "menu,menuone,preview,noselect",
@@ -103,6 +93,16 @@ return {
 
 					return vim_item
 				end,
+			},
+		})
+
+		require("cmp_dictionary").setup({
+			paths = { "/usr/share/dict/words" },
+			exact_length = 2,
+			first_case_insensitive = true,
+			document = {
+				enable = true,
+				command = { "wn", "${label}", "-over" },
 			},
 		})
 

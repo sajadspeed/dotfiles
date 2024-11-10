@@ -10,7 +10,7 @@ return {
 			typescript = { "eslint" },
 			javascriptreact = { "eslint" },
 			typescriptreact = { "eslint" },
-			python = { "pylint" },
+			-- python = { "pylint" },
 			css = { "stylelint" },
 			-- ["*"] = { "codespell" },
 		}
@@ -21,19 +21,7 @@ return {
 			group = lint_augroup,
 			callback = function()
 				lint.try_lint()
-				-- lint.try_lint({ "codespell" }) -- helliolksjdf
 			end,
 		})
-
-		-- vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave", "TextChanged" }, {
-		-- 	group = lint_augroup, -- hellpa
-		-- 	callback = function()
-		-- 		lint.try_lint("codespell")
-		-- 	end,
-		-- })
-		--
-		-- vim.keymap.set("n", "<leader>L", function()
-		-- 	lint.try_lint("codespell")
-		-- end, { desc = "Trigger linting for current file" })
 	end,
 }

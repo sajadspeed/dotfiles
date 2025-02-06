@@ -15,3 +15,4 @@ __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia##Run by nvidia
 adb pull /storage/self/primary/Download/ADM/ ~/Downloads/ && pcmanfm-qt ~/Downloads/ADM/##Mobile Pull ADM
 for file in *.png; do filename=$(basename "$file" .png); convert "$file" -flatten -resize 1000x1000\> -quality 30 -strip "${filename}_convert.jpg"; done##Convert PNG to JPG with compression
 sudo swapoff -a && sudo swapon -a##Swap clean
+yt-dlp -f "bv[ext=webm]+ba[ext=webm]/bv[ext=mp4]+ba[ext=m4a]" --write-auto-subs --embed-subs##Youtube Downloader yt-dlp

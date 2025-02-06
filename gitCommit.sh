@@ -29,8 +29,11 @@ cp ~/.local/share/applications/nvim.desktop ./desktop/nvim.desktop
 echo "Copy firefox userChrome.css"
 cp ~/.mozilla/firefox/wbfr5h0b.default-esr/chrome/userChrome.css ./etc/firefox/
 
+echo "Copy yt-dlp config"
+cp ~/.config/yt-dlp ./etc/
+
 echo "Copy .proxychains"
-cp /home/sajadspeed/.proxychains/proxychains.conf ./etc/proxychains/
+cp ~/.proxychains/proxychains.conf ./etc/proxychains/
 
 echo "Copy Marker user_commands.txt.."
 cp ~/.local/share/marker/user_commands.txt ./marker/

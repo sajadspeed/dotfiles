@@ -1,3 +1,11 @@
+-- Doc for future
+-- Make spell file:
+-- Copy .dic and .aff file to nvim/spell/
+-- Example: fa.dic, fa.aff
+-- Run: mkspell! /home/sajadspeed/.config/nvim/spell/fa
+-- Command make a file: fa.utf-8.spl
+-- For text file same.
+--
 -- General settings
 vim.opt.spell = true
 vim.opt.spellcapcheck = "" -- If not applied here, move to `set_spell_settings` function.
@@ -21,7 +29,7 @@ local filetype_to_spelllang_map = {
 
 local default_spelllangs = {
 	"en",
-	"fa",
+	-- "fa",
 	"aws",
 	"computingAcronyms",
 	"filetypes",

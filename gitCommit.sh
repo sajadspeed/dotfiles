@@ -30,7 +30,7 @@ echo "Copy firefox userChrome.css"
 cp ~/.mozilla/firefox/wbfr5h0b.default-esr/chrome/userChrome.css ./etc/firefox/
 
 echo "Copy yt-dlp config"
-cp ~/.config/yt-dlp ./etc/
+cp -r ~/.config/yt-dlp/ ./etc/
 
 echo "Copy .proxychains"
 cp ~/.proxychains/proxychains.conf ./etc/proxychains/

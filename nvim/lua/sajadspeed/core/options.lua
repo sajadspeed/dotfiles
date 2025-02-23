@@ -24,7 +24,7 @@ opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or 
 opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 
 -- For fix <200c> half-space in farsi
--- require("sajadspeed.core.conceal_fix_200c")
+require("sajadspeed.core.conceal_fix_200c")
 
 require("sajadspeed.core.spell")
 

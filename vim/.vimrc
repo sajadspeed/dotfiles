@@ -41,5 +41,5 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 
 map <leader>a ggVG
 
-set spell
-set spelloptions=camel
+" set spell
+" set spelloptions=camel

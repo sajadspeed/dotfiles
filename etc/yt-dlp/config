@@ -1,4 +1,4 @@
---proxy socks5://192.168.166.32:10808/
+--proxy socks5://192.168.14.13:10808/
 --cookies-from-browser firefox
 --embed-chapters
 --embed-subs

@@ -19,6 +19,9 @@ find ./tmux/ -name ".git*" -exec rm -rf {} \; # remove all git repo in tmux dire
  
 echo "Copy nvim.profile Konsole..."
 cp ~/.local/share/konsole/nvim.profile ./konsole/nvim.profile
+
+echo "Copy WezTerm config..."
+cp -r ~/.config/wezterm/ .
  
 echo "Copy KwinRules config..."
 cp ~/.config/kwinrulesrc ./kde/kwinrulesrc

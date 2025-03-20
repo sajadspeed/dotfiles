@@ -43,7 +43,7 @@ return {
 			vim.keymap.set("n", "<S-Tab>", api.node.open.preview, opts("Preview"))
 
 			vim.keymap.set("n", "r", api.fs.rename_basename, opts("Rename basename"))
-			vim.keymap.set("n", "e", api.fs.rename, opts("Rename"))
+			vim.keymap.set("n", "R", api.fs.rename, opts("Rename"))
 		end
 
 		-- configure nvim-tree

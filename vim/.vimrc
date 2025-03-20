@@ -39,7 +39,12 @@ imap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
+" Paste from Neovim's clipboard
+imap <C-v> <C-r>"
+
 map <leader>a ggVG
+
+nnoremap <leader>n :set number!<CR>
 
 " set spell
 " set spelloptions=camel

@@ -34,22 +34,50 @@ keymap.set("i", "<C-k>", "<Esc>:m .-2<CR>==gi")
 keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
 keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
 
-keymap.set("n", "<CR>", "o <ESC>", { desc = "New blank line in normal mode" })
-keymap.set("n", "<S-CR>", "i<CR><ESC>", { desc = "New blank line in normal mode" })
+-- keymap.set("n", "<CR>", "o <ESC>", { desc = "New blank line in normal mode" })
+-- keymap.set("n", "<S-CR>", "i<CR><ESC>", { desc = "New blank line in normal mode" })
+keymap.set("n", "<CR>", function()
+	if vim.bo.modifiable then
+		return "o <ESC>"
+	else
+		return "<CR>"
+	end
+end, { expr = true, desc = "New blank line in normal mode if modifiable" })
+
+keymap.set("n", "<S-CR>", function()
+	if vim.bo.modifiable then
+		return "i<CR><ESC>"
+	else
+		return "<CR>"
+	end
+end, { expr = true, desc = "New blank line in normal mode if modifiable" })
+
 keymap.set("n", "<leader>a", "ggVG", { desc = "Select all" })
 keymap.set("n", "x", '"_x')
 keymap.set("n", "X", '"_X')
 
-keymap.set("x", "<leader>p", [["_dP]])
+keymap.set(
+	{ "n", "v" },
+	"<leader>y",
+	'"+y',
+	{ noremap = true, silent = true, desc = "Copy to system clipboard (yank)" }
+)
+keymap.set(
+	{ "n", "v" },
+	"<leader>Y",
+	'"+y$',
+	{ noremap = true, silent = true, desc = "Copy to system clipboard until end of line" }
+)
 
-keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
-keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
-keymap.set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
-keymap.set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
-keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)")
+keymap.set({ "n", "v" }, "<leader>p", '"+p', { noremap = true, silent = true, desc = "Paste from system clipboard" })
+keymap.set(
+	{ "n", "v" },
+	"<leader>P",
+	'"+P',
+	{ noremap = true, silent = true, desc = "Paste before from system clipboard" }
+)
 
-keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)")
-keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
+keymap.set({ "i", "c" }, "<c-v>", '<c-r>"', { desc = "Paste from Neovim's clipboard" })
 
 -- window management
 keymap.set("n", "<leader>ss", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
@@ -71,3 +99,5 @@ keymap.set("n", "<leader>H", function()
 end, { desc = "Cancel Highlight search" })
 
 keymap.set("n", "<leader>;", "A;<ESC>")
+
+keymap.set({ "n", "v", "i" }, "<c-t>", "<cmd>Lspsaga term_toggle<CR>", { noremap = true, silent = true })

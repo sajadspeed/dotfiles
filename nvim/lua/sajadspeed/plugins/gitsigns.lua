@@ -88,12 +88,12 @@ return {
 				map("n", "<leader>gb", function()
 					gs.blame_line({ full = true })
 				end)
-				map("n", "<leader>tb", gs.toggle_current_line_blame)
+				map("n", "<leader>gB", gs.toggle_current_line_blame)
 				map("n", "<leader>gd", gs.diffthis)
 				map("n", "<leader>gD", function()
 					gs.diffthis("~")
 				end)
-				map("n", "<leader>td", gs.toggle_deleted)
+				map("n", "<leader>ge", gs.toggle_deleted)
 
 				-- Text object
 				map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")

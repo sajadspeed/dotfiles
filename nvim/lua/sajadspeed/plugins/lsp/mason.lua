@@ -30,13 +30,16 @@ return {
 				-- "csharp_ls", -- require dotnet
 				"omnisharp",
 				"clangd",
-				"tsserver",
-				"intelephense",
+				-- "tsserver",
+				-- "intelephense",
+				"phpactor",
 				"pyright",
 				"sqlls",
 				"html",
 				"cssls",
 				"emmet_ls",
+				"dockerls",
+				"docker_compose_language_service",
 			},
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true, -- not the same as ensure_installed
@@ -54,6 +57,7 @@ return {
 				"eslint", -- js linter
 				"stylelint", -- css linter
 				"pylint", -- python linter
+				"php-debug-adapter",
 				-- "codespell",
 			},
 		})

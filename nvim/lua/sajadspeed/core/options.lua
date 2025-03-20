@@ -21,11 +21,10 @@ opt.smartcase = true -- if you include mixed case in your search, assumes you wa
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
 
 -- clipboard
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+-- opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 
 -- For fix <200c> half-space in farsi
 require("sajadspeed.core.conceal_fix_200c")
 
-require("sajadspeed.core.spell")
-
 -- General Langs: en,fa,aws,computingAcronyms,filetypes,lorem,networkingTerms,softwareTerms,webServices,
+require("sajadspeed.core.spell")

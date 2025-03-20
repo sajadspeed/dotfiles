@@ -59,9 +59,13 @@ return {
 			case_insensitive_regex = false,
 		})
 		-- vim.cmd("hi IlluminatedWordRead guibg=#525252")
-		vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "visual" })
-		vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "visual" })
-		vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "visual" })
+
+		local hi_color = vim.api.nvim_get_hl(0, { name = "Folded" })
+
+		vim.api.nvim_set_hl(0, "IlluminatedWordText", { underline = true, bg = hi_color.bg })
+		vim.api.nvim_set_hl(0, "IlluminatedWordRead", { underline = true, bg = hi_color.bg })
+		vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { underline = true, bg = hi_color.bg })
+		vim.api.nvim_set_hl(0, "illuminatedCurWord", { underline = true, bg = hi_color.bg })
 		--
 	end,
 }

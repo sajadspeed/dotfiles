@@ -51,12 +51,10 @@ return {
 				"stylua", -- lua formatter
 				"clang-format", -- c... formatter
 				"php-cs-fixer",
-				"black", -- Python formatter
-				"isort", -- Python sort imports formatter
+				"ruff", -- Python formatter and linter
 				"google-java-format", -- java formatter
 				"eslint", -- js linter
 				"stylelint", -- css linter
-				"pylint", -- python linter
 				"php-debug-adapter",
 				-- "codespell",
 			},

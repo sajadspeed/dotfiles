@@ -54,6 +54,7 @@ return {
 			},
 			actions = {
 				open_file = {
+					resize_window = false,
 					window_picker = {
 						enable = false,
 					},
@@ -69,7 +70,8 @@ return {
 			-- sync_root_with_cwd = true
 		})
 
-		require("nvim-tree.api").tree.open()
+		-- Open on startup
+		-- require("nvim-tree.api").tree.open()
 
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness
@@ -78,5 +80,18 @@ return {
 		keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFile<CR>", { desc = "Open file explorer on current file" })
 		keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
 		keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
+		local prev = { new_name = "", old_name = "" } -- Prevents duplicate events
+		vim.api.nvim_create_autocmd("User", {
+			pattern = "NvimTreeSetup",
+			callback = function()
+				local events = require("nvim-tree.api").events
+				events.subscribe(events.Event.NodeRenamed, function(data)
+					if prev.new_name ~= data.new_name or prev.old_name ~= data.old_name then
+						data = data
+						Snacks.rename.on_rename_file(data.old_name, data.new_name)
+					end
+				end)
+			end,
+		})
 	end,
 }

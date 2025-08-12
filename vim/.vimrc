@@ -1,7 +1,7 @@
 set mouse=r
 
 set nowrap
-set number
+set relativenumber
 syntax on
 
 set tabstop=4
@@ -18,7 +18,11 @@ imap jj <Esc>
 imap JJ <Esc>
 map L $
 map H ^
-vnoremap L $
+
+"" It provides flexibility for moving around in the line more efficiently without selecting trailing spaces or newline characters.
+"" Previously, using '$' would select the newline character and cause the next line to stick to the current one after deletion. This remap avoids that issue.
+vnoremap L g_
+
 vnoremap H ^
 
 map J <C-d>
@@ -38,6 +42,9 @@ imap <C-k> <Esc>:m .-2<CR>==gi
 
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
+
+" Fixes cursor jumping to the start after yank in Visual mode
+xnoremap y ygv<Esc>
 
 " Paste from Neovim's clipboard
 imap <C-v> <C-r>"

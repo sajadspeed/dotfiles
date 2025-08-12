@@ -4,8 +4,6 @@ return {
 	dependencies = "nvim-tree/nvim-web-devicons",
 	opts = {
 		options = {
-			-- mode = "tabs",
-			-- separate_style = "slant",
 			show_buffer_close_icons = false,
 			show_close_icon = false,
 			diagnostics = "nvim_lsp",

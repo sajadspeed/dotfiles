@@ -1,5 +1,7 @@
 local opt = vim.opt -- for conciseness
 
+opt.sessionoptions = "buffers,curdir,folds,globals,tabpages,winpos,winsize"
+
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
 opt.number = true -- shows absolute line number on cursor line (when relative number is on)
@@ -23,8 +25,16 @@ opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or 
 -- clipboard
 -- opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 
+-- Highlight text on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+	pattern = "*",
+	callback = function()
+		vim.highlight.on_yank({ higroup = "Visual", timeout = 500 })
+	end,
+})
+
 -- For fix <200c> half-space in farsi
-require("sajadspeed.core.conceal_fix_200c")
+-- require("sajadspeed.core.conceal_fix_200c")
 
 -- General Langs: en,fa,aws,computingAcronyms,filetypes,lorem,networkingTerms,softwareTerms,webServices,
 require("sajadspeed.core.spell")

@@ -4,6 +4,7 @@ return {
 	config = function()
 		local dap = require("dap")
 
+		--- PHP ---
 		dap.adapters.php = {
 			type = "executable",
 			command = "/home/sajadspeed/.local/share/nvim/mason/packages/php-debug-adapter/php-debug-adapter",
@@ -28,6 +29,7 @@ return {
 				runtimeExecutable = "php",
 			},
 		}
+		---
 	end,
 	keys = {
 		{

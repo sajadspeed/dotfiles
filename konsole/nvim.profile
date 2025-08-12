@@ -11,10 +11,11 @@ TerminalColumns=500
 TerminalRows=32
 
 [Keyboard]
-KeyBindings=default
+KeyBindings=Nvim
 
 [Scrolling]
 ScrollBarPosition=2
 
 [Terminal Features]
 FlowControlEnabled=false
+UrlHintsModifiers=0

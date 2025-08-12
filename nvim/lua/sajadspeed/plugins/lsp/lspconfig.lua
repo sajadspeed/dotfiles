@@ -121,12 +121,25 @@ return {
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
 		-- Change the Diagnostic symbols in the sign column (gutter)
-		-- (not in youtube nvim video)
-		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-		end
+		local signs = { Error = " ", Warn = " ", Hint = "󰌵 ", Info = " " }
+
+		vim.diagnostic.config({
+			signs = {
+				text = {
+					[vim.diagnostic.severity.ERROR] = signs.Error,
+					[vim.diagnostic.severity.WARN] = signs.Warn,
+					[vim.diagnostic.severity.INFO] = signs.Info,
+					[vim.diagnostic.severity.HINT] = signs.Hint,
+				},
+				numhl = {
+					[vim.diagnostic.severity.ERROR] = "",
+					[vim.diagnostic.severity.WARN] = "",
+					[vim.diagnostic.severity.HINT] = "",
+					[vim.diagnostic.severity.INFO] = "",
+				},
+			},
+		})
+		-- END
 
 		vim.cmd([[
 		  highlight DiagnosticHint guifg=#af87d7
@@ -179,7 +192,6 @@ return {
 		-- 	init_options = {
 		-- 		globalStoragePath = "/home/sajadspeed/.config/intelephense",
 		-- 	},
-		--
 		-- })
 
 		lspconfig["phpactor"].setup({
@@ -199,7 +211,7 @@ return {
 		lspconfig["html"].setup({
 			capabilities = capabilities,
 
-			filetypes = { "html", "php" },
+			filetypes = { "html" },
 		})
 
 		-- configure css server
@@ -214,10 +226,6 @@ return {
 		})
 
 		lspconfig["dockerls"].setup({
-			capabilities = capabilities,
-		})
-
-		lspconfig["docker_compose_language_service"].setup({
 			capabilities = capabilities,
 		})
 

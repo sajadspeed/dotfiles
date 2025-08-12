@@ -6,8 +6,8 @@ return {
 		vim.g.VM_leader = "\\"
 		vim.g.VM_mouse_mappings = 1
 		vim.g.VM_maps = {
-			["Select Cursor Down"] = "<C-M-j>",
-			["Select Cursor Up"] = "<C-M-k>",
+			["Select Cursor Down"] = "\\u56FD", -- <C-S-j>
+			["Select Cursor Up"] = "\\u5C71", -- <C-S-k>
 			["Select All"] = "\\a",
 		}
 		vim.g.VM_add_cursor_at_pos_no_mappings = 1

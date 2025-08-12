@@ -19,16 +19,19 @@ find ./tmux/ -name ".git*" -exec rm -rf {} \; # remove all git repo in tmux dire
  
 echo "Copy nvim.profile Konsole..."
 cp ~/.local/share/konsole/nvim.profile ./konsole/nvim.profile
+ 
+echo "Copy Nvim.keytab Konsole..."
+cp ~/.local/share/konsole/Nvim.keytab ./konsole/Nvim.keytab
 
 echo "Copy WezTerm config..."
 cp -r ~/.config/wezterm/ .
- 
+  
 echo "Copy KwinRules config..."
 cp ~/.config/kwinrulesrc ./kde/kwinrulesrc
- 
+  
 echo "Copy nvim.desktop file..."
 cp ~/.local/share/applications/nvim.desktop ./desktop/nvim.desktop
- 
+  
 echo "Copy firefox userChrome.css"
 cp ~/.mozilla/firefox/wbfr5h0b.default-esr/chrome/userChrome.css ./etc/firefox/
 

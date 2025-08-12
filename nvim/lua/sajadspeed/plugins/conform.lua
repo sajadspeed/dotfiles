@@ -45,7 +45,11 @@ return {
 				javascriptreact = { "prettier" },
 				typescriptreact = { "prettier" },
 				php = { "php_cs_fixer" },
-				python = { "black", "isort" },
+				python = {
+					"ruff_fix",
+					"ruff_format",
+					"ruff_organize_imports",
+				},
 				html = { "prettier" },
 				css = { "prettier" },
 				markdown = { "prettier" },

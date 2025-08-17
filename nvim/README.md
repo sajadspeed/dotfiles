@@ -45,8 +45,8 @@ This technique is particularly useful when you want to define keybindings for cu
 - [x] \u5C71 山
 - [x] \u9F8D 龍
 - [x] \u99AC 馬
-- [ ] \u9CE5 鳥
-- [ ] \u6708 月
+- [x] \u9CE5 鳥
+- [x] \u6708 月
 - [ ] \u738B 王
 - [ ] \u4F55 何
 - [ ] \u529B 力

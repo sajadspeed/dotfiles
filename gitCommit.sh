@@ -41,6 +41,9 @@ cp -r ~/.config/yt-dlp/ ./etc/
 echo "Copy .proxychains"
 cp ~/.proxychains/proxychains.conf ./etc/proxychains/
 
+echo "Copy .gitconfig"
+cp ~/.gitconfig ./git/
+ 
 echo "Copy Marker user_commands.txt.."
 cp ~/.local/share/marker/user_commands.txt ./marker/
  

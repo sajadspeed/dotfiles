@@ -105,5 +105,5 @@ source $ZSH/oh-my-zsh.sh
 
 [[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
 
-# XAMPP
-alias lampp="sudo /opt/lampp/lampp"
+alias wezterm-maximize='wezterm --config-file=$HOME/.config/wezterm/wezterm_maximize.lua'
+

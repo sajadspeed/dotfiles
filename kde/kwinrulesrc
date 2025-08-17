@@ -37,6 +37,18 @@ titlematch=1
 wmclass=konsole
 wmclassmatch=1
 
+[3c684a4d-985b-4e08-965f-cd0cc5cd77d5]
+Description=Application settings for maximized_wezterm
+clientmachine=localhost
+maximizehoriz=true
+maximizehorizrule=2
+maximizevert=true
+maximizevertrule=2
+noborder=true
+noborderrule=2
+wmclass=maximized_wezterm
+wmclassmatch=1
+
 [83d86c75-95c5-4858-b2a2-ed1dcd10113d]
 Description=Window settings for konsole
 clientmachine=localhost
@@ -46,8 +58,8 @@ wmclass=konsole
 wmclassmatch=1
 
 [General]
-count=2
-rules=1,2
+count=3
+rules=3c684a4d-985b-4e08-965f-cd0cc5cd77d5,1,2
 
 [d87c4797-a4a9-41b2-8c44-f3ca7169f5f0]
 Description=Window settings for konsole

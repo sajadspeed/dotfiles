@@ -2,32 +2,45 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
-config.color_scheme = "OneDark (base16)"
+config.color_scheme = "Breeze (Gogh)"
 
 config.bidi_enabled = true
 config.font = wezterm.font_with_fallback({
-	"Mononoki Nerd Font Mono",
+	{ family = "Mononoki Nerd Font Mono", weight = "Regular" },
 	"Vazir Code",
 })
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 config.font_size = 12
-config.enable_tab_bar = false
+
+-- Just like Konsole
 config.line_height = 1.1
+config.cell_width = 0.8
+--
+
+config.window_padding = {
+	left = 4,
+	right = 4,
+	top = 2,
+	bottom = 2,
+}
+
+-- config.hide_tab_bar_if_only_one_tab = true
 
 config.adjust_window_size_when_changing_font_size = false
 
-config.window_padding = {
-	left = 0,
-	right = 0,
-	top = 0,
-	bottom = 0,
-}
+config.max_fps = 180
+config.animation_fps = 180
+
+config.initial_cols = 135
+config.initial_rows = 32
+
+config.warn_about_missing_glyphs = false
 
 config.keys = {
 
 	{
-		key = "mapped:H",
 		mods = "CTRL|SHIFT",
+		key = "mapped:H",
 		action = wezterm.action.SendString("\\u4E9C"),
 	},
 	{
@@ -65,6 +78,8 @@ config.keys = {
 		mods = "CTRL",
 		action = wezterm.action.SendString("\\u99AC"),
 	},
+
+	{ key = "M", mods = "CTRL|SHIFT", action = wezterm.action.ToggleFullScreen },
 }
 
 return config

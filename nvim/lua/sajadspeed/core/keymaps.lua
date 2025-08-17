@@ -66,10 +66,10 @@ keymap.set("v", "L", "g_", { desc = "Go to last non-blank character in line" })
 keymap.set({ "n", "v" }, "H", "^", { desc = "Go to first of line" })
 
 keymap.set({ "n", "x" }, "J", function()
-	require("cinnamon").scroll("<C-d>")
+	require("neoscroll").ctrl_d({ duration = 250, easing = "sine" })
 end, { desc = "Half page down" })
 keymap.set({ "n", "x" }, "K", function()
-	require("cinnamon").scroll("<C-u>")
+	require("neoscroll").ctrl_u({ duration = 250, easing = "sine" })
 end, { desc = "Half page up" })
 
 keymap.set("n", "<leader>j", "J<CR>", { desc = "Join" })
@@ -103,8 +103,8 @@ keymap.set("n", "<leader>a", "ggVG", { desc = "Select all" })
 keymap.set("n", "x", '"_x')
 keymap.set("n", "X", '"_X')
 
-keymap.set("v", "p", '"_dP', { desc = "Paste without overwriting register" })
-keymap.set("v", "P", '"_dp', { desc = "Paste(P) without overwriting register" })
+keymap.set("v", "p", '"_dp', { desc = "Paste without overwriting register" })
+keymap.set("v", "P", '"_dP', { desc = "Paste(P) without overwriting register" })
 
 -- Fixes cursor jumping to the start after yank in Visual mode
 keymap.set("x", "y", "ygv<Esc>", { noremap = true, silent = true })
@@ -130,13 +130,13 @@ keymap.set("n", "<leader>P", '"+P', { noremap = true, silent = true, desc = "Pas
 keymap.set(
 	"v",
 	"<leader>p",
-	'"_d"+P',
+	'"_d"+p',
 	{ noremap = true, silent = true, desc = "Paste from system clipboard without overwriting register" }
 )
 keymap.set(
 	"v",
 	"<leader>P",
-	'"_d"+p',
+	'"_d"+P',
 	{ noremap = true, silent = true, desc = "Paste before from system clipboard without overwriting register" }
 )
 

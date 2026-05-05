@@ -5,7 +5,7 @@ Comment=Run nvim in Wezterm and Tmux with customize options
 Keywords=Text;Editor;Plaintext;Write;
 StartupWMClass=org.wezfurlong.wezterm.maximize
 TryExec=wezterm
-Exec=wezterm --config-file=$HOME/.config/wezterm/wezterm_maximize.lua start -- sh -c 'tmux attach -t workspace_nvim || tmux'
+Exec=wezterm --config-file=$HOME/.config/wezterm/wezterm_maximize.lua start -- sh -c 'tmux attach -t workspace_1 || tmux'
 Icon=neovim
 Terminal=false
 Categories=Development;TextEditor;

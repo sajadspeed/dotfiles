@@ -103,8 +103,8 @@ keymap.set("n", "<leader>a", "ggVG", { desc = "Select all" })
 keymap.set("n", "x", '"_x')
 keymap.set("n", "X", '"_X')
 
-keymap.set("v", "p", '"_dp', { desc = "Paste without overwriting register" })
-keymap.set("v", "P", '"_dP', { desc = "Paste(P) without overwriting register" })
+keymap.set("v", "p", '"_dP', { desc = "Paste without overwriting register" })
+keymap.set("v", "P", '"_dp', { desc = "Paste(P) without overwriting register" })
 
 -- Fixes cursor jumping to the start after yank in Visual mode
 keymap.set("x", "y", "ygv<Esc>", { noremap = true, silent = true })
@@ -130,13 +130,13 @@ keymap.set("n", "<leader>P", '"+P', { noremap = true, silent = true, desc = "Pas
 keymap.set(
 	"v",
 	"<leader>p",
-	'"_d"+p',
+	'"_d"+P',
 	{ noremap = true, silent = true, desc = "Paste from system clipboard without overwriting register" }
 )
 keymap.set(
 	"v",
 	"<leader>P",
-	'"_d"+P',
+	'"_d"+p',
 	{ noremap = true, silent = true, desc = "Paste before from system clipboard without overwriting register" }
 )
 

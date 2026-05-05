@@ -1,8 +1,11 @@
---proxy socks5://127.0.0.1:12334/
+--proxy socks5://192.168.1.101:10808/
 --cookies-from-browser firefox
 --embed-chapters
+ 
+# Subtitle
 --embed-subs
 --write-auto-subs
 --write-subs
---sub-langs "en.*,fa"
+--sub-langs "en,fa"
+ 
 -o "~/Downloads/YouTube/%(uploader)s/%(playlist&{}|)s/%(playlist_index&{}_|)s%(title)s_(%(id)s).%(ext)s"

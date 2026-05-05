@@ -13,3 +13,4 @@ Laravel
 env
 healthcheck
 redis
+laravel

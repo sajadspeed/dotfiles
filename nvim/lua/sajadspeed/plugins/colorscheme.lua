@@ -13,6 +13,7 @@ return {
 		-- onelight
 		-- onedark_vivid
 		-- onedark_dark
+
 		vim.cmd([[colorscheme onedark]])
 	end,
 }

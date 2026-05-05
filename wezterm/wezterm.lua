@@ -35,6 +35,7 @@ config.initial_cols = 135
 config.initial_rows = 32
 
 config.warn_about_missing_glyphs = false
+config.audible_bell = "Disabled"
 
 config.keys = {
 

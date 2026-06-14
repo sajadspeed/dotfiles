@@ -103,6 +103,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Enable dynamic Makefile target completion (requires make to be callable)
+zstyle ':completion:*:make:*:targets' call-command true
+zstyle ':completion:*:*:make:*' tag-order 'targets'
+
 [[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
 
 alias wezterm-maximize='wezterm --config-file=$HOME/.config/wezterm/wezterm_maximize.lua'

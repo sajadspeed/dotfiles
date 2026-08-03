@@ -111,3 +111,7 @@ zstyle ':completion:*:*:make:*' tag-order 'targets'
 
 alias wezterm-maximize='wezterm --config-file=$HOME/.config/wezterm/wezterm_maximize.lua'
 
+
+# Created by `pipx` on 2026-07-10 08:34:48
+export PATH="$PATH:/home/sajadspeed/.local/bin"
+. "/home/sajadspeed/.deno/env"

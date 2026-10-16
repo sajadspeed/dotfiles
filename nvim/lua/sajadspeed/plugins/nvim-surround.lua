@@ -6,21 +6,14 @@ return {
 		-- local configs = require("nvim-surround.config")
 		-- configs.keymaps.visual = "s"
 		-- configs.keymaps.visual_line = "gs"
-		require("nvim-surround").setup({
-			keymaps = {
-				visual = "s",
-				visual_line = "gs",
-			},
+
+		vim.g.nvim_surround_no_mappings = true
+
+		vim.keymap.set("x", "s", "<Plug>(nvim-surround-visual)", {
+			desc = "Add a surrounding pair around a visual selection",
+		})
+		vim.keymap.set("x", "gs", "<Plug>(nvim-surround-visual-line)", {
+			desc = "Add a surrounding pair around a visual selection, on new lines",
 		})
 	end,
 }
-
---     Old text                    Command         New text
--- --------------------------------------------------------------------------------
---     surr*ound_words             ysiw)           (surround_words)
---     *make strings               ys$"            "make strings"
---     [delete ar*ound me!]        ds]             delete around me!
---     remove <b>HTML t*ags</b>    dst             remove HTML tags
---     'change quot*es'            cs'"            "change quotes"
---     <b>or tag* types</b>        csth1<CR>       <h1>or tag types</h1>
---     delete(functi*on calls)     dsf             function calls

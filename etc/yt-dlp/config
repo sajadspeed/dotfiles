@@ -1,10 +1,10 @@
---proxy socks5://192.168.1.101:10808/
+#--proxy socks5://192.168.1.101:10808/
 --cookies-from-browser firefox
 --embed-chapters
  
 # Subtitle
 --embed-subs
---write-auto-subs
+#--write-auto-subs
 --write-subs
 --sub-langs "en,fa"
  

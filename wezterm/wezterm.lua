@@ -38,7 +38,6 @@ config.warn_about_missing_glyphs = false
 config.audible_bell = "Disabled"
 
 config.keys = {
-
 	{
 		mods = "CTRL|SHIFT",
 		key = "mapped:H",

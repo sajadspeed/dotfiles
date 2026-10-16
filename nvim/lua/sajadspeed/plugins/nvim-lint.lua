@@ -1,7 +1,7 @@
 return {
 	"mfussenegger/nvim-lint",
 	lazy = true,
-	event = { "BufReadPre", "BufNewFile" }, -- to disableo, comment this out
+	event = { "BufReadPre", "BufNewFile" }, -- to disable, comment this out
 	config = function()
 		local lint = require("lint")
 
@@ -10,8 +10,8 @@ return {
 			typescript = { "eslint" },
 			javascriptreact = { "eslint" },
 			typescriptreact = { "eslint" },
-			python = { "ruff" },
-			css = { "stylelint" },
+			-- python = { "ruff" },
+			-- css = { "stylelint" },
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

@@ -6,13 +6,9 @@ return {
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		"ray-x/lsp_signature.nvim",
 		"Hoffs/omnisharp-extended-lsp.nvim",
-		-- "VidocqH/lsp-lens.nvim",
+		"Decodetalkers/csharpls-extended-lsp.nvim",
 	},
 	config = function()
-		local lspconfig = require("lspconfig")
-
-		-- import lspconfig plugin
-
 		-- import cmp-nvim-lsp plugin
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
@@ -69,7 +65,7 @@ return {
 				opts.desc = "Smart rename"
 				keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
 
-				keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+				keymap.set("n", "<leader>rs", ":lsp restart<CR>", opts) -- mapping to restart lsp if necessary
 
 				-- Toggle virtual_text
 				keymap.set("n", "<leader>rv", function()
@@ -81,10 +77,26 @@ return {
 				end, opts)
 
 				opts.desc = "Show buffer diagnostics"
-				keymap.set("n", "<leader>dd", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
+				keymap.set("n", "<leader>dD", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
 
 				opts.desc = "Show line diagnostics"
-				keymap.set("n", "<leader>dD", vim.diagnostic.open_float, opts) -- show diagnostics for line
+				keymap.set("n", "<leader>dd", vim.diagnostic.open_float, opts) -- show diagnostics for line
+
+				opts.desc = "Copy line diagnostics in system clipboard"
+				keymap.set("n", "<leader>dy", function()
+					local diagnostics = vim.diagnostic.get(0, { lnum = vim.fn.line(".") - 1 })
+
+					if #diagnostics == 0 then
+						return
+					end
+
+					local messages = {}
+					for _, diagnostic in ipairs(diagnostics) do
+						table.insert(messages, diagnostic.message)
+					end
+
+					vim.fn.setreg("+", table.concat(messages, "\n"))
+				end, opts)
 
 				opts.desc = "Show documentation for what is under cursor"
 				keymap.set("n", "<leader>k", "<cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
@@ -96,26 +108,6 @@ return {
 				keymap.set("n", "<leader>fS", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", opts) -- show documentation for what is under cursor
 			end,
 		})
-
-		-- local SymbolKind = vim.lsp.protocol.SymbolKind
-
-		-- require("lsp-lens").setup({
-		-- 	enable = true,
-		-- 	include_declaration = false, -- Reference include declaration
-		-- 	sections = { -- Enable / Disable specific request, formatter example looks 'Format Requests'
-		-- 		definition = false,
-		-- 		references = true,
-		-- 		implements = true,
-		-- 		git_authors = true,
-		-- 	},
-		-- 	ignore_filetype = {
-		-- 		"prisma",
-		-- 	},
-		-- 	-- Target Symbol Kinds to show lens information
-		-- 	target_symbol_kinds = { SymbolKind.Function, SymbolKind.Method, SymbolKind.Interface },
-		-- 	-- Symbol Kinds that may have target symbol kinds as children
-		-- 	wrapper_symbol_kinds = { SymbolKind.Class, SymbolKind.Struct },
-		-- })
 
 		-- used to enable autocompletion (assign to every lsp server config)
 		local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -155,7 +147,7 @@ return {
 		]])
 
 		-- configure lua server (with special settings)
-		lspconfig["lua_ls"].setup({
+		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
 
 			settings = { -- custom settings for lua
@@ -175,106 +167,73 @@ return {
 			},
 		})
 
-		-- C++
-		-- lspconfig["clangd"].setup({
-		-- 	capabilities = capabilities,
-		-- })
-
-		-- local tsserverCapabilities = cmp_nvim_lsp.default_capabilities()
-		-- tsserverCapabilities.textDocument.completion.completionItem.snippetSupport = false
-
-		-- configure typescript server with plugin
-		lspconfig["ts_ls"].setup({
+		vim.lsp.config("vtsls", {
 			capabilities = capabilities,
 		})
 
-		-- lspconfig["intelephense"].setup({
-		-- 	capabilities = capabilities,
-		-- 	init_options = {
-		-- 		globalStoragePath = "/home/sajadspeed/.config/intelephense",
-		-- 	},
-		-- })
-
-		lspconfig["phpactor"].setup({
+		vim.lsp.config("phpactor", {
 			capabilities = capabilities,
 		})
 
-		-- configure python server
-		lspconfig["pyright"].setup({
+		vim.lsp.config("pyright", {
 			capabilities = capabilities,
 		})
+		-- SS: For enable again just remove this line.
+		vim.lsp.enable("ruff", false)
 
-		-- SQL
-		-- lspconfig["sqlls"].setup({
-		-- 	capabilities = capabilities,
-		-- })
-
-		-- configure html server
-		lspconfig["html"].setup({
+		vim.lsp.config("html", {
 			capabilities = capabilities,
-
-			filetypes = { "html" },
 		})
 
 		-- configure css server
-		lspconfig["cssls"].setup({
+		vim.lsp.config("cssls", {
 			capabilities = capabilities,
 		})
 
-		-- configure emmet language server
-		lspconfig["emmet_ls"].setup({
+		vim.lsp.config("emmet_ls", {
 			capabilities = capabilities,
-			filetypes = { "html", "css", "sass", "scss", "less", "svelte" },
 		})
 
-		lspconfig["dockerls"].setup({
+		vim.lsp.config("dockerls", {
 			capabilities = capabilities,
 		})
 
 		-- C#
-		lspconfig["omnisharp"].setup({
+		-- local util = require("lspconfig.util")
+		--
+		-- local function omnisharp_root()
+		-- 	local cwd = vim.fn.getcwd()
+		-- 	return util.root_pattern("*.slnx", "*.sln", "*.csproj")(cwd) or cwd
+		-- end
+		--
+		-- vim.lsp.config("omnisharp", {
+		-- 	-- SS: Find the solution/project root from Neovim's cwd so OmniSharp starts from the correct project directory. Fix Unity Assets directory cwd.
+		-- 	-- cmd_cwd = omnisharp_root(),
+		-- 	capabilities = capabilities,
+		-- 	handlers = {
+		-- 		["textDocument/definition"] = require("omnisharp_extended").handler,
+		-- 	},
+		-- 	settings = {
+		-- 		MsBuild = {
+		-- 			LoadProjectsOnDemand = false,
+		-- 		},
+		-- 	},
+		-- })
+
+		-- vim.lsp.config("roslyn", {
+		-- 	capabilities = capabilities,
+		-- })
+
+		vim.lsp.config("csharp_ls", {
 			capabilities = capabilities,
-			cmd = { "dotnet", "/home/sajadspeed/.local/share/nvim/mason/packages/omnisharp/OmniSharp.dll" },
 			handlers = {
-				["textDocument/definition"] = require("omnisharp_extended").handler,
+				["textDocument/definition"] = require("csharpls_extended").handler,
+				["textDocument/typeDefinition"] = require("csharpls_extended").handler,
 			},
-			-- Enables support for reading code style, naming convention and analyzer
-			-- settings from .editorconfig.
-			enable_editorconfig_support = true,
-
-			-- If true, MSBuild project system will only load projects for files that
-			-- were opened in the editor. This setting is useful for big C# codebases
-			-- and allows for faster initialization of code navigation features only
-			-- for projects that are relevant to code that is being edited. With this
-			-- setting enabled OmniSharp may load fewer projects and may thus display
-			-- incomplete reference lists for symbols.
-			enable_ms_build_load_projects_on_demand = false,
-
-			-- Enables support for roslyn analyzers, code fixes and rulesets.
-			enable_roslyn_analyzers = false,
-
-			-- Specifies whether 'using' directives should be grouped and sorted during
-			-- document formatting.
-			organize_imports_on_format = false,
-
-			-- Enables support for showing unimported types and unimported extension
-			-- methods in completion lists. When committed, the appropriate using
-			-- directive will be added at the top of the current file. This option can
-			-- have a negative impact on initial completion responsiveness,
-			-- particularly for the first few completion sessions after opening a
-			-- solution.
-			enable_import_completion = true,
-
-			-- Specifies whether to include preview versions of the .NET SDK when
-			-- determining which version to use for project loading.
-			sdk_include_prereleases = true,
-
-			-- Only run analyzers against open files when 'enableRoslynAnalyzers' is
-			-- true
-			analyze_open_documents_only = false,
-
-			-- SS: My omnisharp.json in ~/.omnisharp/omnisharp.json
 		})
+
+		vim.lsp.enable("csharp_ls")
+		require("telescope").load_extension("csharpls_definition")
 
 		vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "visual" })
 	end,

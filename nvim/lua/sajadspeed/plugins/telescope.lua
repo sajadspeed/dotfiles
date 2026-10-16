@@ -1,6 +1,5 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	branch = "0.1.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		-- { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
@@ -18,6 +17,13 @@ return {
 					i = {
 						["<C-k>"] = actions.move_selection_previous, -- move to prev result
 						["<C-j>"] = actions.move_selection_next, -- move to next result
+					},
+				},
+			},
+			pickers = {
+				find_files = {
+					file_ignore_patterns = {
+						"%.meta$",
 					},
 				},
 			},

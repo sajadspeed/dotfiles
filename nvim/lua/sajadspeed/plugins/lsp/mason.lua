@@ -27,17 +27,11 @@ return {
 		mason_lspconfig.setup({
 			ensure_installed = {
 				"lua_ls",
-				-- "csharp_ls", -- require dotnet
-				"omnisharp",
-				"clangd",
-				-- "tsserver",
-				-- "intelephense",
+				"vtsls",
 				"phpactor",
 				"pyright",
-				"sqlls",
 				"html",
 				"cssls",
-				"emmet_ls",
 				"dockerls",
 				"docker_compose_language_service",
 			},
@@ -49,14 +43,11 @@ return {
 			ensure_installed = {
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
-				"clang-format", -- c... formatter
 				"php-cs-fixer",
 				"ruff", -- Python formatter and linter
-				"google-java-format", -- java formatter
 				"eslint", -- js linter
-				"stylelint", -- css linter
 				"php-debug-adapter",
-				-- "codespell",
+				"tree-sitter-cli",
 			},
 		})
 	end,

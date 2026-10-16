@@ -17,9 +17,7 @@ return {
 				prettier = {
 					command = "prettier",
 					prepend_args = {
-						"--use-tabs",
 						-- "--single-attribute-per-line",
-						"--print-width 9999",
 					},
 				},
 				php_cs_fixer = {
@@ -28,18 +26,9 @@ return {
 						"--config=/home/sajadspeed/.config/nvim/lua/sajadspeed/plugins/lsp/php_cs_config.php",
 					},
 				},
-				-- clang_format = {
-				-- 	command = "clang-sldkfjsdfformat",
-				-- 	prepend_args = {
-				-- 		-- '--style="{UsetTab: Always, IndentWidth: 4, TabWidth: 4}"',
-				-- 		'-style="{BasedOnStyle: Google, UseTab: Always}"',
-				-- 	},
-				-- },
 			},
 			formatters_by_ft = {
 				lua = { "stylua" },
-				c_sharp = { "clang_format" },
-				cpp = { "clang_format" },
 				javascript = { "prettier" },
 				typescript = { "prettier" },
 				javascriptreact = { "prettier" },

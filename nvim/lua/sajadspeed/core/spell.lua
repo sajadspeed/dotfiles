@@ -9,6 +9,10 @@
 -- General settings
 vim.opt.spell = true
 vim.opt.spellcapcheck = "" -- If not applied here, move to `set_spell_settings` function.
+
+-- For add file words. When press 'zg' word save here.
+vim.opt.spellfile = vim.fn.stdpath("config") .. "/spell/custom.utf-8.add"
+
 local ignore_word_letters = 3 -- Words less than and equal to this number are ignored for spelling.
 
 -- Cspell dicts port helloWord
@@ -29,7 +33,7 @@ local filetype_to_spelllang_map = {
 
 local default_spelllangs = {
 	"en",
-	-- "fa",
+	"fa",
 	"aws",
 	"computingAcronyms",
 	"filetypes",
@@ -42,7 +46,7 @@ local default_spelllangs = {
 vim.opt.spelllang = default_spelllangs
 
 local function dictionary_exists(lang)
-	local dict_path = vim.fn.expand("~/.config/nvim/spell/" .. lang .. ".utf-8.spl")
+	local dict_path = vim.fn.expand(vim.fn.stdpath("config") .. lang .. ".utf-8.spl")
 	return vim.fn.filereadable(dict_path) == 1
 end
 
@@ -57,9 +61,9 @@ local function set_spell_for_extension()
 
 	local langs = filetype_to_spelllang_map[ext]
 
-	if not langs then
-		-- vim.notify("No dictionary found for extension ." .. ext, vim.log.levels.INFO)
-	end
+	-- if not langs then
+	-- 	vim.notify("No dictionary found for extension ." .. ext, vim.log.levels.INFO)
+	-- end
 
 	if langs then
 		for _, lang in ipairs(langs) do
@@ -126,3 +130,17 @@ vim.api.nvim_create_autocmd("User", {
 		vim.api.nvim_set_hl(0, "SpellLocal", { fg = hi_color.fg })
 	end,
 })
+
+-- Disable spell-check for Persian/Arabic Unicode range (fixes RTL reordering words when spell is on)
+-- vim.api.nvim_create_autocmd({ "BufWinEnter", "FileType", "Syntax" }, {
+-- 	callback = function()
+-- 		-- Enable toplevel spell checking so our match can override Comment regions
+-- 		vim.cmd("syntax spell toplevel")
+--
+-- 		-- Clear previous match to avoid duplicates on repeated triggers
+-- 		pcall(vim.cmd, "silent! syntax clear PersianNoSpell")
+-- 		vim.cmd([[
+-- 		  syntax match PersianNoSpell /[\u0600-\u06FF\u0750-\u077F\uFB50-\uFDFF\uFE70-\uFEFF]\+/ containedin=ALL contains=@NoSpell
+-- 		]])
+-- 	end,
+-- })

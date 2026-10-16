@@ -7,13 +7,6 @@ return {
 	},
 	config = function()
 		local nvimtree = require("nvim-tree")
-		-- local api = require("nvim-tree.api")
-		--
-		-- local function open_without_focus(node)
-		-- 	api.
-		-- 	api.node.open.edit(node, { close_tree = true })
-		-- 	api.tree.close()
-		-- end
 
 		-- recommended settings from nvim-tree documentation
 		vim.g.loaded_netrw = 1
@@ -61,7 +54,7 @@ return {
 				},
 			},
 			filters = {
-				custom = { ".DS_Store" },
+				custom = { ".DS_Store", ".meta" },
 			},
 			git = {
 				ignore = false,

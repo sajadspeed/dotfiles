@@ -1,6 +1,6 @@
 local opt = vim.opt -- for conciseness
 
-opt.sessionoptions = "buffers,curdir,folds,globals,tabpages,winpos,winsize"
+opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
@@ -35,6 +35,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- For fix <200c> half-space in farsi
 -- require("sajadspeed.core.conceal_fix_200c")
+opt.termbidi = true
 
 -- General Langs: en,fa,aws,computingAcronyms,filetypes,lorem,networkingTerms,softwareTerms,webServices,
 require("sajadspeed.core.spell")

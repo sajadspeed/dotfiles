@@ -1,17 +1,11 @@
 [$Version]
 update_info=kwinrules.upd:replace-placement-string-to-enum,kwinrules.upd:use-virtual-desktop-ids
 
-[1]
-Description=Window settings for konsole
+[05020760-1212-4317-a4bc-4c113fc50acd]
+Description=Application settings for org.wezfurlong.wezterm
 clientmachine=localhost
-desktopfile=nvim
-desktopfilerule=2
-noborder=true
-noborderrule=2
-title=Neovim — Konsole
-titlematch=3
-windowrole=MainWindow#1
-wmclass=konsole
+fsplevelrule=2
+wmclass=org.wezfurlong.wezterm
 wmclassmatch=1
 
 [2]
@@ -25,6 +19,18 @@ noborder=true
 title=Neovim — Konsole
 types=1
 wmclass=firefox-esr
+wmclassmatch=1
+
+[20dabbf3-c63f-4782-8c9a-dbfc0b638090]
+Description=Application settings for wezterm
+clientmachine=localhost
+maximizehoriz=true
+maximizehorizrule=2
+maximizevert=true
+maximizevertrule=2
+noborder=true
+noborderrule=2
+wmclass=wezterm
 wmclassmatch=1
 
 [399b3472-32bd-4b13-987a-2e4c7cf23246]
@@ -58,8 +64,8 @@ wmclass=konsole
 wmclassmatch=1
 
 [General]
-count=3
-rules=3c684a4d-985b-4e08-965f-cd0cc5cd77d5,1,2
+count=4
+rules=05020760-1212-4317-a4bc-4c113fc50acd,3c684a4d-985b-4e08-965f-cd0cc5cd77d5,20dabbf3-c63f-4782-8c9a-dbfc0b638090,2
 
 [d87c4797-a4a9-41b2-8c44-f3ca7169f5f0]
 Description=Window settings for konsole

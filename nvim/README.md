@@ -2,6 +2,12 @@
 
 `sudo apt install fd-find ripgrep`
 
+# Install `csharp-ls`
+
+```
+dotnet tool install --global csharp-ls
+```
+
 # Install `cspell`:
 
 ```
